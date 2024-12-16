@@ -9,13 +9,12 @@ import web.model.User;
 import java.util.List;
 
 @Service
-@Transactional
 public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDAO userDAO;
 
-
+    @Transactional
     @Override
     public void saveUser(User user) {
         userDAO.save(user);
@@ -33,11 +32,13 @@ public class UserServiceImpl implements UserService {
         return userDAO.getById(id);
     }
 
+    @Transactional
     @Override
     public void update(User user) {
         userDAO.update(user);
     }
 
+    @Transactional
     @Override
     public void delete(Integer id) {
         userDAO.delete(id);
